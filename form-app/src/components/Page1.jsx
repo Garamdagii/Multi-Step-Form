@@ -1,19 +1,16 @@
+import { Back } from ".";
 import { Footer } from "./Footer";
-import { Header } from "./Header";
 import { Step } from "./Step";
 
-export const Page1 = ({}) => {
+export const Page1 = ({ nextStep, stepCount }) => {
   return (
-    <div className="flex flex-col p-[32px] h-[591px] justify-between rounded-[8px] bg-amber-50">
-      <div className="flex flex-col gap-7">
-        <Header />
-        <div className="flex flex-col gap-3">
-          <Step inputname="First name" />
-          <Step inputname="Last name" />
-          <Step inputname="Username" />
-        </div>
+    <div className="flex flex-col h-[420px] justify-between rounded-[8px] bg-white">
+      <div className="flex flex-col gap-3">
+        <Step inputType="text" isRequired={true} inputName="First name" />
+        <Step inputType="text" isRequired={true} inputName="Last name" />
+        <Step inputType="text" isRequired={true} inputName="Username" />
       </div>
-      <Footer />
+      <Footer onClick={nextStep} stepCount={stepCount} page="1/3" />
     </div>
   );
 };
