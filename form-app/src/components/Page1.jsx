@@ -2,18 +2,13 @@ import { Back } from ".";
 import { Footer } from "./Footer";
 import { Step } from "./Step";
 
-export const Page1 = ({
-  nextStep,
-  stepCount,
-  initialValues,
-  handleChanges,
-}) => {
-  const handleSubmit = () => {
-    if (initialValues.firstName === "") {
-      error = true;
-    }
-    nextStep;
-  };
+export const Page1 = ({ nextStep, stepCount, handleOnChanges }) => {
+  // const handleSubmit = () => {
+  //   if (value.firstName === "") {
+  //     error = true;
+  //   }
+  //   nextStep;
+  // };
 
   return (
     <div className="flex flex-col h-[420px] justify-between rounded-[8px] bg-white">
@@ -22,22 +17,22 @@ export const Page1 = ({
           inputType="text"
           inputName="firstName"
           inputTitle="First name"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
         <Step
           inputType="text"
           inputName="lastName"
           inputTitle="Last name"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
         <Step
           inputType="text"
           inputName="userName"
           inputTitle="Username"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
       </div>
-      <Footer onClick={handleSubmit} stepCount={stepCount} />
+      <Footer onClick={nextStep} stepCount={stepCount} />
     </div>
   );
 };

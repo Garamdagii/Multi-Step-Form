@@ -3,7 +3,12 @@ import { Footer } from "./Footer";
 import { Step } from "./Step";
 import { Required } from "./Required";
 
-export const Page3 = ({ previousStep, nextStep, stepCount, handleChanges }) => {
+export const Page3 = ({
+  previousStep,
+  nextStep,
+  stepCount,
+  handleOnChanges,
+}) => {
   return (
     <div className="flex flex-col h-[420px] justify-between rounded-[8px] bg-white">
       <div className="flex flex-col gap-3">
@@ -11,7 +16,7 @@ export const Page3 = ({ previousStep, nextStep, stepCount, handleChanges }) => {
           inputType="date"
           inputName="dateofBirth"
           inputTitle="Date of birth"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
         <div className="flex text-sm font-semibold leading-[16px] tracing-[-0.14px] text-[#334155]">
           <p>Profile image</p>

@@ -2,7 +2,12 @@ import { Back } from "./Back";
 import { Footer } from "./Footer";
 import { Step } from "./Step";
 
-export const Page2 = ({ previousStep, nextStep, stepCount, handleChanges }) => {
+export const Page2 = ({
+  previousStep,
+  nextStep,
+  stepCount,
+  handleOnChanges,
+}) => {
   return (
     <div className="flex flex-col h-[420px] justify-between rounded-[8px] bg-white">
       <div className="flex flex-col gap-3">
@@ -10,25 +15,25 @@ export const Page2 = ({ previousStep, nextStep, stepCount, handleChanges }) => {
           inputType="email"
           inputName="email"
           inputTitle="Email"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
         <Step
           inputType="tel"
           inputName="phone"
           inputTitle="Phone number"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
         <Step
           inputType="password"
           inputName="password"
           inputTitle="Password"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
         <Step
           inputType="password"
           inputName="confirm"
           inputTitle="Confirm password"
-          onChange={handleChanges}
+          onChange={handleOnChanges}
         />
       </div>
       <div className="flex gap-2">
