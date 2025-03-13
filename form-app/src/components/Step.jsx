@@ -1,6 +1,12 @@
 import { Required } from "./Required";
 
-export const Step = ({ inputType, inputName, className, isRequired }) => {
+export const Step = ({
+  inputTitle,
+  inputType,
+  inputName,
+  className,
+  onChange,
+}) => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex">
@@ -8,12 +14,13 @@ export const Step = ({ inputType, inputName, className, isRequired }) => {
           className="text-sm font-semibold leading-[16px] tracing-[-0.14px] text-[#334155]"
           htmlFor="info"
         >
-          {inputName}
+          {inputTitle}
         </label>
-        {isRequired ? <Required /> : ""}
+        <Required />
       </div>
 
       <input
+        onChange={onChange}
         className={
           `p-3 items-center rounded-[8px] border solid border-[#8B8E95] ` +
           className
@@ -21,7 +28,7 @@ export const Step = ({ inputType, inputName, className, isRequired }) => {
         type={inputType}
         placeholder="name"
         id="info"
-        name="info"
+        name={inputName}
       ></input>
     </div>
   );

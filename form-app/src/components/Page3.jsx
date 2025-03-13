@@ -3,11 +3,16 @@ import { Footer } from "./Footer";
 import { Step } from "./Step";
 import { Required } from "./Required";
 
-export const Page3 = ({ previousStep, nextStep, stepCount }) => {
+export const Page3 = ({ previousStep, nextStep, stepCount, handleChanges }) => {
   return (
     <div className="flex flex-col h-[420px] justify-between rounded-[8px] bg-white">
       <div className="flex flex-col gap-3">
-        <Step inputType="date" inputName="Date of birth" isRequired={true} />
+        <Step
+          inputType="date"
+          inputName="dateofBirth"
+          inputTitle="Date of birth"
+          onChange={handleChanges}
+        />
         <div className="flex text-sm font-semibold leading-[16px] tracing-[-0.14px] text-[#334155]">
           <p>Profile image</p>
           <Required />
@@ -23,17 +28,13 @@ export const Page3 = ({ previousStep, nextStep, stepCount }) => {
             >
               Add image
             </label>
-            <Step
-              isRequired={false}
-              inputType="file"
-              className={"file:hidden opacity-0 "}
-            />
+            <Step inputType="file" className={"file:hidden opacity-0 "} />
           </div>
         </div>
       </div>
       <div className="flex gap-2">
         <Back onClick={previousStep} />
-        <Footer onClick={nextStep} stepCount={stepCount} page="3/3" />
+        <Footer onClick={nextStep} stepCount={stepCount} />
       </div>
     </div>
   );
