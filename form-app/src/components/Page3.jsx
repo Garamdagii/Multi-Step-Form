@@ -10,7 +10,7 @@ export const Page3 = ({
   handleOnChanges,
 }) => {
   return (
-    <div className="flex flex-col h-[420px] justify-between rounded-[8px] bg-white">
+    <div className="flex flex-col min-h-[420px] justify-between rounded-[8px] bg-white">
       <div className="flex flex-col gap-3">
         <Step
           inputType="date"
@@ -37,10 +37,7 @@ export const Page3 = ({
           </div>
         </div>
       </div>
-      <div className="flex gap-2">
-        <Back onClick={previousStep} />
-        <Footer onClick={nextStep} stepCount={stepCount} />
-      </div>
+      <Footer onClick={nextStep} stepCount={stepCount} nonFirst={true} />
     </div>
   );
 };

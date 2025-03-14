@@ -6,6 +6,8 @@ export const Step = ({
   inputName,
   className,
   onChange,
+  error,
+  errorMessages,
 }) => {
   return (
     <div className="flex flex-col gap-2">
@@ -22,14 +24,29 @@ export const Step = ({
       <input
         onChange={onChange}
         className={
-          `p-3 items-center rounded-[8px] border solid border-[#8B8E95] ` +
-          className
+          `p-3 items-center rounded-[8px] border solid ${
+            error ? "border-[#E14942]" : "border-[#8B8E95]"
+          } ` + className
         }
         type={inputType}
         placeholder="name"
         id="info"
         name={inputName}
       ></input>
+      {error ? (
+        <p className="text-sm leading-[20px] tracing-[-0.28px] text-[#E14942]">
+          {errorMessages}
+        </p>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
+
+// display: flex;
+// height: 20px;
+// flex-direction: column;
+// justify-content: flex-end;
+// align-self: stretch;
+// color: #E14942;

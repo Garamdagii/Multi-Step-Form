@@ -16,8 +16,8 @@ const initialValues = {
 
 export default function Home() {
   const [stepCount, setStepCount] = useState(0);
-  const [value, setValue] = useState(initialValues);
-  const [error, setError] = useState(initialValues);
+  const [inputValue, setInputValue] = useState(initialValues);
+  const [error, setError] = useState(false);
 
   const nextStep = () => {
     if (stepCount >= 3) return;
@@ -32,20 +32,30 @@ export default function Home() {
   const CurrentStep = [Page1, Page2, Page3, Page4][stepCount];
   const handleValues = (event) => {
     const { name, value } = event.target;
-    setValue((previousValues) => ({ ...previousValues, [name]: value }));
+    setError(false);
+    setInputValue((previousValues) => ({ ...previousValues, [name]: value }));
   };
-  // console.log(value);
+  // console.log(inputValue);
+
+  const handleErrors = () => {
+    setError(true);
+  };
 
   return (
     <div className="flex justify-center items-center w-screen h-screen bg-gray-200 gap-10">
-      <div className="flex flex-col p-[32px] gap-7 justify-between rounded-[8px] bg-white">
+      <div className="flex flex-col h-fit p-[32px] gap-7 justify-between rounded-[8px] bg-white">
         {!(stepCount == 3) && <Header />}
-        <CurrentStep
-          nextStep={nextStep}
-          previousStep={previousStep}
-          stepCount={stepCount}
-          handleOnChanges={handleValues}
-        />
+        <div className="flex flex-col min-h-[420px] justify-between rounded-[8px] bg-white">
+          <CurrentStep
+            nextStep={nextStep}
+            previousStep={previousStep}
+            stepCount={stepCount}
+            initialValues={inputValue}
+            handleOnChanges={handleValues}
+            error={error}
+            handleErrors={handleErrors}
+          />
+        </div>
       </div>
     </div>
   );
